@@ -58,7 +58,7 @@ namespace TextComposerLib.Text.Tabular
 
         private string FormatItem(string itemText, int itemWidth)
         {
-            return itemText.PadRight(itemWidth + 1);
+            return (itemText ?? "").PadRight(itemWidth + 1);
         }
 
         //private void ComputeTableSize()
@@ -75,8 +75,11 @@ namespace TextComposerLib.Text.Tabular
             var maxItemWidth = Math.Max(rowHeadersWidth, colHeadersWidth);
             for (var c = 0; c < Columns; c++)
                 for (var r = 0; r < Rows; r++)
-                    if (maxItemWidth < Items[r, c].Length)
-                        maxItemWidth = Items[r, c].Length;
+                {
+                    var item = Items[r, c];
+                    if (!string.IsNullOrEmpty(item) && maxItemWidth < item.Length)
+                        maxItemWidth = item.Length;
+                }
 
             var composer = new LinearComposer();
 

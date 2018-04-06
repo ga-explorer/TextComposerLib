@@ -891,7 +891,7 @@ namespace TextComposerLib.Diagrams.GraphViz.Dot
             return this;
         }
 
-        public DotEdge SetPenWdith(float value)
+        public DotEdge SetPenWidth(float value)
         {
             AttrValues.SetAttribute("penwidth", value);
 

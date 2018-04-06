@@ -51,18 +51,22 @@ namespace TextComposerLib.Diagrams.GraphViz.Dot
 
         internal static string ToDotSignedDouble(this float value)
         {
-            return 
-                value > 0 
-                ? "+" + value.ToString("0.0000000") 
-                : value.ToString("0.0000000");
+            var v =
+                value > 0
+                    ? "+" + value.ToString("0.0000000")
+                    : value.ToString("0.0000000");
+
+            return v.ValueToQuotedLiteral();
         }
 
         internal static string ToDotSignedDouble(this double value)
         {
-            return
+            var v =
                 value > 0
                 ? "+" + value.ToString("0.0000000")
                 : value.ToString("0.0000000");
+
+            return v.ValueToQuotedLiteral();
         }
 
         internal static string ToDotPoint(float x, float y)

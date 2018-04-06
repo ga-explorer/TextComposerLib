@@ -6,7 +6,7 @@ using TextComposerLib.Text.Linear.LineHeader;
 
 namespace TextComposerLib.Text.Linear
 {
-    public sealed class LinearComposer
+    public class LinearComposer
     {
         /// <summary>
         /// The list of lines added to the text log
@@ -261,6 +261,16 @@ namespace TextComposerLib.Text.Linear
         public LinearComposer AppendNewLine()
         {
             return AppendLine();
+        }
+
+        public LinearComposer AppendSpaces(int n = 1)
+        {
+            return Append("".PadLeft(n, ' '));
+        }
+
+        public LinearComposer AppendCharacters(char c, int n = 1)
+        {
+            return Append("".PadLeft(n, c));
         }
 
         /// <summary>
