@@ -225,6 +225,20 @@ namespace TextComposerLibSamples
                 GraphVizSamples.Task1
                 );
 
+            childNode = node.AddCollection("SVG", "SVG Composer");
+
+            childNode.AddTask(
+                @"SVG Sample 1",
+                @"Example for generating svg",
+                SvgSamples.Task1
+            );
+
+            childNode.AddTask(
+                @"SVG Sample 2",
+                @"Example for generating a rectangular grid using svg",
+                SvgSamples.Task2
+            );
+
             return node;
         }
 

@@ -61,6 +61,7 @@
     <Compile Include="Samples\SettingsComposerSamples.cs" />
     <Compile Include="Samples\SimpleTextSamples.cs" />
     <Compile Include="Samples\StructuredComposersSamples.cs" />
+    <Compile Include="Samples\SvgSamples.cs" />
     <Compile Include="Samples\TextColumnsComposerSamples.cs" />
     <Compile Include="Samples\TextExpressionSamples.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

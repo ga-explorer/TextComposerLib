@@ -569,9 +569,14 @@ namespace TextComposerLib
             return n + 1;
         }
 
-    public static string ToHtmlSafeString(this string text)
+        public static string ToHtmlSafeString(this string text)
         {
             return WebUtility.HtmlEncode(text);
+        }
+
+        public static string ToHtmlSafeLiteral(this string text)
+        {
+            return WebUtility.HtmlEncode(text).DoubleQuote();
         }
 
         public static string[] SplitLines(this string text)

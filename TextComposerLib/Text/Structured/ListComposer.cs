@@ -52,9 +52,27 @@ namespace TextComposerLib.Text.Structured
             return this;
         }
 
+        public ListComposer AddIfNotEmpty(string item)
+        {
+            if (!string.IsNullOrEmpty(item))
+                base.Add(this.ToTextItem(item));
+
+            return this;
+        }
+
         public ListComposer Add<T>(T item)
         {
             base.Add(this.ToTextItem(item));
+
+            return this;
+        }
+
+        public ListComposer AddIfNotEmpty<T>(T item)
+        {
+            var itemText = this.ToTextItem(item);
+
+            if (!string.IsNullOrEmpty(itemText.Text))
+                base.Add(itemText);
 
             return this;
         }
@@ -66,9 +84,31 @@ namespace TextComposerLib.Text.Structured
             return this;
         }
 
+        public ListComposer AddRangeIfNotEmpty(IEnumerable<string> items)
+        {
+            base.AddRange(
+                items
+                    .Where(t => !string.IsNullOrEmpty(t))
+                    .Select(this.ToTextItem)
+            );
+
+            return this;
+        }
+
         public ListComposer AddRange<T>(IEnumerable<T> items)
         {
             base.AddRange(items.Select(this.ToTextItem));
+
+            return this;
+        }
+
+        public ListComposer AddRangeIfNotEmpty<T>(IEnumerable<T> items)
+        {
+            base.AddRange(
+                items
+                    .Select(this.ToTextItem)
+                    .Where(t => !string.IsNullOrEmpty(t.Text))
+            );
 
             return this;
         }
@@ -80,9 +120,31 @@ namespace TextComposerLib.Text.Structured
             return this;
         }
 
+        public ListComposer AddRangeIfNotEmpty(params string[] items)
+        {
+            base.AddRange(
+                items
+                    .Where(t => !string.IsNullOrEmpty(t))
+                    .Select(this.ToTextItem)
+            );
+
+            return this;
+        }
+
         public ListComposer AddRange<T>(params T[] items)
         {
             base.AddRange(items.Select(this.ToTextItem));
+
+            return this;
+        }
+
+        public ListComposer AddRangeIfNotEmpty<T>(params T[] items)
+        {
+            base.AddRange(
+                items
+                    .Select(this.ToTextItem)
+                    .Where(t => !string.IsNullOrEmpty(t.Text))
+            );
 
             return this;
         }

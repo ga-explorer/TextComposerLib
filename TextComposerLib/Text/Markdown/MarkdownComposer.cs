@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextComposerLib.Text.Linear;
+﻿using TextComposerLib.Text.Linear;
 
 namespace TextComposerLib.Text.Markdown
 {
